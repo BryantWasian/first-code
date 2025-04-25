@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args){
+        double currencyChange;
+        int PIN;
+        int method;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to bank! Please enter your PIN number!");
+        PIN = scanner.nextInt();
+        if(PIN == 123456) {
+            System.out.println("Welcome! Please enter the transaction method(1/Take or 2/Insert)");
+            method = scanner.nextInt();
+            if(method == 1){
+                System.out.println("How much would you like to take?");
+                currencyChange = scanner.nextDouble();
+                double inBank = 100.00 - currencyChange;
+                System.out.println("You have " + inBank + "$ left in your bank account!");
+                System.out.println("Thank you for using the bank!");
+            } else if (method == 2){
+                System.out.println("How much would you like to deposit?");
+                currencyChange = scanner.nextDouble();
+                double inBank = 100.00 + currencyChange;
+                System.out.println("You have " + inBank + "$ in your bank account!");
+                System.out.println("Thank you for using the bank!");
+            }else {
+                System.out.println("Please input the correct format");
+            }
+        }else {
+            System.out.println("Wrong Password!");
+        }
+        scanner.close();
+    }
+}
