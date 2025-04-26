@@ -1,0 +1,118 @@
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args){
+        double currencyChange;
+        int PIN;
+        int method;
+        int exchange;
+        double inputMoney;
+        int moneyExchange;
+        int confirm;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to bank! Please enter your PIN number!");
+        PIN = scanner.nextInt();
+        if(PIN == 123456) {
+            System.out.println("Welcome! Please enter the transaction method(1/Take , 2/Insert , or 3/Foreign Currency)");
+            method = scanner.nextInt();
+            if(method == 1){
+                System.out.println("How much would you like to take?");
+                currencyChange = scanner.nextDouble();
+                System.out.println("You would like to take "+ currencyChange + "$");
+                double inBank = 100.00 - currencyChange;
+                if(inBank >= 0){
+                    System.out.println("You have " + inBank + "$ left in your bank account!");
+                    System.out.println("Thank you for using the bank!");
+                }
+                else{
+                    System.out.println("You don't have enough money in your account");
+                }
+            } else if (method == 2){
+                System.out.println("How much would you like to deposit?");
+                currencyChange = scanner.nextDouble();
+                System.out.println("You would like to deposit "+ currencyChange + "$");
+                double inBank = 100.00 + currencyChange;
+                System.out.println("You have " + inBank + "$ in your bank account!");
+                System.out.println("Thank you for using the bank!");
+            } else if (method == 3) {
+                System.out.println("Welcome to Currency Exchange Center!");
+                System.out.println("Would you like to see the current foreign exchange or would you like to convert your money? Press 1 to see info, press 2 to convert");
+                exchange = scanner.nextInt();
+                if (exchange == 1){
+                    System.out.println("Currency Exchange Rate");
+                    System.out.println("1$ = Rp 16.830");
+                    System.out.println("1$ = € 0.88");
+                    System.out.println("1$ = CN¥ 7.29");
+                    System.out.println("1$ = JP¥ 144");
+                }else{
+                    System.out.println("Currency Convertion");
+                    System.out.println("How much money would you like to convert?");
+                    inputMoney = scanner.nextDouble();
+                    double USDIDR = inputMoney * 16830;
+                    double USDEUR = inputMoney * 0.88;
+                    double USDCNY = inputMoney * 7.29;
+                    double USDJPY = inputMoney * 144;
+                    System.out.println("What currency would you like to convert into?");
+                    System.out.println("Press 1 for USD - IDR");
+                    System.out.println("Press 2 for USD - EUR");
+                    System.out.println("Press 3 for USD - CNY");
+                    System.out.println("Press 4 for USD - JPY");
+                    moneyExchange = scanner.nextInt();
+                    if(moneyExchange == 1){ //To IDR Conversion
+                        System.out.println("The conversion rate is 1$ = Rp 16.830");
+                        System.out.println("Would you like to convert? Press 1 for Yes, Press 2 for No");
+                        confirm = scanner.nextInt();
+                        if(confirm == 1){
+                            System.out.println("Your money is Rp " + USDIDR);
+                            System.out.println("Thank you for using the bank!");
+                        }
+                        else{ //study how to make the code reloops up if you go to else
+                            System.out.println("Thank you for using the bank!");
+                        }
+                    } else if (moneyExchange == 2) { //To EURO conversion
+                        System.out.println("The conversion rate is 1$ = € 0.88");
+                        System.out.println("Would you like to convert? Press 1 for Yes, Press 2 for No");
+                        confirm = scanner.nextInt();
+                        if(confirm == 1){
+                            System.out.println("Your money is € " + USDEUR);
+                            System.out.println("Thank you for using the bank!");
+                        }
+                        else {
+                            System.out.println("Thank you for using the bank!");
+                        }
+                    } else if (moneyExchange == 3) { //To CNY conversion
+                        System.out.println("The conversion rate is 1$ = CN¥ 7.29");
+                        System.out.println("Would you like to convert? Press 1 for Yes, Press 2 for No");
+                        confirm = scanner.nextInt();
+                        if(confirm == 1){
+                            System.out.println("Your money is CN¥ " + USDEUR);
+                            System.out.println("Thank you for using the bank!");
+                        }
+                        else {
+                            System.out.println("Thank you for using the bank!");
+                        }
+                    } else if (moneyExchange == 4) { //To JPY conversion
+                        System.out.println("The conversion rate is 1$ = JP¥ 144");
+                        System.out.println("Would you like to convert? Press 1 for Yes, Press 2 for No");
+                        confirm = scanner.nextInt();
+                        if(confirm == 1){
+                            System.out.println("Your money is JP¥ " + USDEUR);
+                            System.out.println("Thank you for using the bank!");
+                        }
+                        else {
+                            System.out.println("Thank you for using the bank!");
+                        }
+                    } else{
+                        System.out.println("Sorry for the limited options");
+                        System.out.println("Thank you for using the Bank!");
+                    }
+                }
+            } else {
+                System.out.println("Please input the correct format");
+            }
+        }else {
+            System.out.println("Wrong Password!");
+        }
+        scanner.close();
+    }
+}
